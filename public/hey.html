@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <link rel="stylesheet" href="hey.css" type="text/css" media="screen,print">
+    <link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <script src="novacancy.js"></script>
+
+    <title></title>
+</head>
+<body>
+<div class="bg">
+    <div class="mask"></div>
+</div>
+
+
+<div class="tab">
+
+
+
+    <div class="tab-content">
+        <div id="signup" class="login">
+            <div class="heading">
+
+                <div>
+                    <div class="top-banner">
+                        <div class="board">
+                            <h1>
+                                <span id="andrew">ANDREW</span>
+                            </h1>
+                            <h3>
+                                <span id="and">AND</span>
+                            </h3>
+                            <h1>
+                                <span id="josh">JOSH,</span>
+                            </h1>
+                            <h1>
+                                <span id="the">THE</span>
+                            </h1>
+                            <h1>
+                                <span id="unicorn">UNICORN EMPERORS</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+        <div id="info" class="login">
+            <div class="heading">
+                <form id="infoform">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+
+<script>
+
+
+    $(document).ready(function () {
+
+        var colors = ['#0000CC','#FF0066', '#009900', '#FF9900', '#FFFF66', '#0000FF', '#993399', '#33CCCC', '#6600CC', '#99FF33', '#FF6600'];
+        $('.bg').addClass('bg'+Math.floor((Math.random()*9)+1).toString() );
+
+        setInterval(vacancies(), 5000);
+
+        function vacancies() {
+            var color1 = getRandomColor();
+            var color1_shader = shadeColor1(color1, 0.1);
+
+            var color2 = getRandomColor();
+            var color2_shader = shadeColor1(color2, 0.1);
+
+            var color3 = getRandomColor();
+            var color3_shader = shadeColor1(color3, 0.1);
+
+            $('#andrew').novacancy({
+                'blink': 1,
+                'off': 1,
+                'color': '#FF9900',
+                'glow': ['0 0 80px ' + color1, '0 0 30px FireBrick', '0 0 6px ' + color1_shader]
+            });
+
+            $('#josh').novacancy({
+                'blink': 1,
+                'off': 1,
+                'color': '#FF9900',
+                'glow': ['0 0 80px ' + color2, '0 0 30px FireBrick', '0 0 6px ' + color2_shader]
+            });
+
+            $('#unicorn').novacancy({
+                'blink': 1,
+                'off': 1,
+                'color': '#FF9900',
+                'glow': ['0 0 80px ' + color3, '0 0 30px FireBrick', '0 0 6px ' + color3_shader]
+            });
+        }
+
+
+
+        function getRandomColor() {
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function shadeColor1(color, percent) {
+            var num = parseInt(color.slice(1),16), amt = Math.round(2.55 * percent), R = (num >> 16) + amt, G = (num >> 8 & 0x00FF) + amt, B = (num & 0x0000FF) + amt;
+            return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (G<255?G<1?0:G:255)*0x100 + (B<255?B<1?0:B:255)).toString(16).slice(1);
+        }
+
+    });
+</script>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "Something About Being Definetly Not a Unicorn Like Josh and Andrew",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "~4.13.1"
+  }
+}
